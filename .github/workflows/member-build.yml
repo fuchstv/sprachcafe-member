@@ -34,13 +34,15 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'sprachcafe2026' }}
         run: ./gradlew assembleRelease bundleRelease --no-daemon
 
-      - name: Upload Build Artifacts (APK & AAB)
+      - name: Upload Build Artifacts (APK, AAB & Symbols)
         uses: actions/upload-artifact@v4
         with:
           name: sprachcafe-member-release-builds
           path: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
+            app/build/outputs/mapping/release/mapping.txt
+            app/build/outputs/native-debug-symbols/release/*.zip
           retention-days: 30
 
       - name: Create GitHub Release
@@ -50,21 +52,25 @@ jobs:
           tag_name: v1.0.0-${{ github.run_number }}
           name: SprachCafé Mitglied v1.0.0 (${{ github.run_number }})
           body: |
-            ### ☕ SprachCafé Polnisch e.V. — Offizielle Mitglieder-App & Digitaler Ausweis
+            ### ☕ SprachCafé Polnisch e.V. — Offizielle Mitglieder-App & Digitaler Ausweis (API 36 Ready)
 
             **Pakete in diesem Release:**
-            * 📦 **app-release.aab:** Signiertes Android App Bundle für die Google Play Console (Closed Testing / Production Release im Play Store)
-            * 📲 **app-release.apk:** Signiertes APK-Installationspaket für sofortige Installation & Testen auf dem Smartphone.
+            * 📦 **app-release.aab:** Signiertes Android App Bundle für die Google Play Console (Target SDK 36 / Android 16 ready, inkl. R8 De-obfuscation & Native Symbols)
+            * 📲 **app-release.apk:** Signiertes APK-Installationspaket für sofortige Installation auf dem Smartphone.
+            * 🗺️ **mapping.txt:** R8 / ProGuard Mapping-Datei zur De-Obfuskierung von Stacktraces.
 
             **Funktionen & Highlights:**
-            * 💳 **Digitaler Mitgliedsausweis:** Animierte Vorteilskarte im edlen Vereinsdesign (Silver, Gold, Platinum, Firmen).
+            * 🎯 **Google Play Ziel-SDK 36 (Android 16):** Erfüllt 100% der aktuellen Play Console Richtlinien.
+            * 🛡️ **R8 Code-Optimierung & Schutz:** Kleineres Paket, optimierte Performance & beigefügte Offenlegungsdatei.
+            * 💳 **Digitaler Mitgliedsausweis:** Vorteilskarte im edlen Vereinsdesign (Silver, Gold, Platinum, Firmen).
             * ☕ **Live-Kaffeekontingent:** Automatischer Fortschrittsbalken & Abrechnung an der Café-Theke.
             * 🔍 **Vollbild-QR-Code:** Maximale Helligkeit & Lesbarkeit für Thekenscanner und Hausbibliothek.
-            * 🎟️ **Event- & Raumnutzungs-Rabatte:** Transparente Anzeige aller hinterlegten Vergünstigungen.
             * 💳 **Google Wallet Integration:** 1-Klick-Export des digitalen Passes direkt in Google Wallet.
             * 🔐 **Magic-Link-Login:** Sichere Aktivierung über persönlichen Einladungslink per E-Mail.
           files: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
+            app/build/outputs/mapping/release/mapping.txt
+            app/build/outputs/native-debug-symbols/release/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

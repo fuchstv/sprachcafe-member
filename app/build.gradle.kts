@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "org.sprachcafe.member"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "org.sprachcafe.member"
         minSdk = 26
-        targetSdk = 35
-        versionCode = System.getenv("BUILD_NUMBER")?.toIntOrNull() ?: 1
-        versionName = "1.0.${System.getenv("BUILD_NUMBER") ?: "0"}"
+        targetSdk = 36
+        versionCode = System.getenv("BUILD_NUMBER")?.toIntOrNull() ?: 2
+        versionName = "1.0.${System.getenv("BUILD_NUMBER") ?: "2"}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -32,12 +32,16 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+            ndk {
+                debugSymbolLevel = "SYMBOL_TABLE"
+            }
         }
         debug {
             applicationIdSuffix = ".debug"
