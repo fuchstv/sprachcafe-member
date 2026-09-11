@@ -108,7 +108,6 @@ jobs:
           track: ${{ github.event.inputs.track || 'internal' }}
           status: ${{ github.event.inputs.status || 'completed' }}
           mappingFile: app/build/outputs/mapping/release/mapping.txt
-          debugSymbols: app/build/outputs/native-debug-symbols/release/*.zip
 
       - name: Notice on Google Play Console deployment
         if: ${{ env.HAVE_PLAY_KEY != 'true' }}
