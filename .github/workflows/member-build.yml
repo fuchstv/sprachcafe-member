@@ -33,6 +33,8 @@ jobs:
   build:
     name: Build Signed Member APK & AAB
     runs-on: ubuntu-latest
+    env:
+      HAVE_PLAY_KEY: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY != '' }}
 
     steps:
       - name: Checkout Code
@@ -97,19 +99,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Google Play Console
-        if: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY != '' }}
+        if: ${{ env.HAVE_PLAY_KEY == 'true' }}
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY }}
           packageName: org.sprachcafe.member
           releaseFiles: app/build/outputs/bundle/release/*.aab
-          track: ${{ inputs.track || 'internal' }}
-          status: ${{ inputs.status || 'completed' }}
+          track: ${{ github.event.inputs.track || 'internal' }}
+          status: ${{ github.event.inputs.status || 'completed' }}
           mappingFile: app/build/outputs/mapping/release/mapping.txt
           debugSymbols: app/build/outputs/native-debug-symbols/release/*.zip
 
       - name: Notice on Google Play Console deployment
-        if: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY == '' }}
+        if: ${{ env.HAVE_PLAY_KEY != 'true' }}
         run: |
           echo "::notice title=Google Play Deployment Skipped::Secret PLAY_SERVICE_ACCOUNT_KEY is not configured in repository settings. See PLAY_CONSOLE_GUIDE.md to activate automated releases."
 
