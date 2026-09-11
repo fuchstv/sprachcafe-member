@@ -2,6 +2,7 @@ package org.sprachcafe.member.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+// GENERATED FROM design-tokens/tokens.json — DO NOT EDIT MANUALLY
 val SprachCafeRed = Color(0xFF8B1E2D)
 val SprachCafeDarkRed = Color(0xFF5C141E)
 val SprachCafeGold = Color(0xFFD4AF37)
@@ -19,3 +20,5 @@ val PlatinumGradientEnd = Color(0xFF0F172A)
 
 val CompanyGradientStart = Color(0xFF075985)
 val CompanyGradientEnd = Color(0xFF0C4A6E)
+
+val CoffeeHighlight = Color(0xFFFDE047)

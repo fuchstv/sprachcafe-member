@@ -16,5 +16,4 @@ data class MemberProfile(
 ) {
     val fullName: String get() = "$firstName $lastName"
     val isCoffeeAvailable: Boolean get() = coffeeRemaining > 0
-    val coffeePercent: Float get() = (coffeeRemaining.toFloat() / maxOf(1, coffeeTotal).toFloat()).coerceIn(0f, 1f)
 }

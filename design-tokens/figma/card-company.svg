@@ -1,0 +1,19 @@
+<svg width="340" height="210" viewBox="0 0 340 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="companyGradient" x1="0" y1="0" x2="340" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#075985"/>
+      <stop offset="100%" stop-color="#0C4A6E"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="336" height="206" rx="24" fill="url(#companyGradient)" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.3"/>
+  <text x="22" y="38" font-size="18" font-family="system-ui, -apple-system, sans-serif">☕</text>
+  <text x="48" y="36" fill="#FFFFFF" fill-opacity="0.9" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" letter-spacing="1">MITGLIEDSAUSWEIS</text>
+  <rect x="240" y="24" width="78" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.2"/>
+  <text x="279" y="39" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="10" letter-spacing="1">COMPANY</text>
+  <text x="22" y="108" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22">Polen Journal e.V.</text>
+  <text x="22" y="130" fill="#FFFFFF" fill-opacity="0.8" font-family="ui-monospace, monospace" font-weight="600" font-size="13">SCP-2026-C01</text>
+  <text x="22" y="174" fill="#FFFFFF" fill-opacity="0.7" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" letter-spacing="0.5">KAFFEE-KONTINGENT</text>
+  <text x="22" y="194" fill="#FDE047" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="13">☕ 10 / 10 verfügbar</text>
+  <text x="318" y="174" text-anchor="end" fill="#FFFFFF" fill-opacity="0.7" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" letter-spacing="0.5">GÜLTIG BIS</text>
+  <text x="318" y="194" text-anchor="end" fill="#FFFFFF" font-family="ui-monospace, monospace" font-weight="700" font-size="13">31.12.2026</text>
+</svg>

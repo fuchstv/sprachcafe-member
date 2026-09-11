@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "SprachCafe / Brand & UI",
+      "modes": [
+        {
+          "name": "Default",
+          "variables": [
+            { "name": "Brand/Red", "type": "COLOR", "value": "#8B1E2D" },
+            { "name": "Brand/DarkRed", "type": "COLOR", "value": "#5C141E" },
+            { "name": "Brand/Gold", "type": "COLOR", "value": "#D4AF37" },
+            { "name": "Brand/Cream", "type": "COLOR", "value": "#FAF5EB" },
+            { "name": "Neutral/Dark", "type": "COLOR", "value": "#1D1B1A" },
+            { "name": "Neutral/White", "type": "COLOR", "value": "#FFFFFF" },
+            { "name": "Neutral/Border", "type": "COLOR", "value": "#E2D8CC" },
+            { "name": "Neutral/Gray", "type": "COLOR", "value": "#808080" },
+            { "name": "Status/CoffeeHighlight", "type": "COLOR", "value": "#FDE047" },
+            { "name": "Radius/Card", "type": "FLOAT", "value": 24 },
+            { "name": "Radius/Modal", "type": "FLOAT", "value": 28 },
+            { "name": "Radius/Benefit", "type": "FLOAT", "value": 14 },
+            { "name": "Radius/Button", "type": "FLOAT", "value": 16 },
+            { "name": "Radius/QR", "type": "FLOAT", "value": 16 },
+            { "name": "Spacing/XS", "type": "FLOAT", "value": 4 },
+            { "name": "Spacing/SM", "type": "FLOAT", "value": 8 },
+            { "name": "Spacing/MD", "type": "FLOAT", "value": 12 },
+            { "name": "Spacing/Base", "type": "FLOAT", "value": 16 },
+            { "name": "Spacing/LG", "type": "FLOAT", "value": 20 },
+            { "name": "Spacing/XL", "type": "FLOAT", "value": 24 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SprachCafe / Member Tiers",
+      "modes": [
+        {
+          "name": "Silver",
+          "variables": [
+            { "name": "Card/GradientStart", "type": "COLOR", "value": "#94A3B8" },
+            { "name": "Card/GradientEnd", "type": "COLOR", "value": "#475569" },
+            { "name": "Card/BadgeLabel", "type": "STRING", "value": "SILVER" }
+          ]
+        },
+        {
+          "name": "Gold",
+          "variables": [
+            { "name": "Card/GradientStart", "type": "COLOR", "value": "#8B1E2D" },
+            { "name": "Card/GradientEnd", "type": "COLOR", "value": "#4A0E18" },
+            { "name": "Card/BadgeLabel", "type": "STRING", "value": "GOLD" }
+          ]
+        },
+        {
+          "name": "Platinum",
+          "variables": [
+            { "name": "Card/GradientStart", "type": "COLOR", "value": "#1E293B" },
+            { "name": "Card/GradientEnd", "type": "COLOR", "value": "#0F172A" },
+            { "name": "Card/BadgeLabel", "type": "STRING", "value": "PLATINUM" }
+          ]
+        },
+        {
+          "name": "Company",
+          "variables": [
+            { "name": "Card/GradientStart", "type": "COLOR", "value": "#075985" },
+            { "name": "Card/GradientEnd", "type": "COLOR", "value": "#0C4A6E" },
+            { "name": "Card/BadgeLabel", "type": "STRING", "value": "COMPANY" }
+          ]
+        }
+      ]
+    }
+  ]
+}

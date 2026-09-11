@@ -4,6 +4,27 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      track:
+        description: 'Google Play Release Track (internal, alpha, beta, production)'
+        required: true
+        default: 'internal'
+        type: choice
+        options:
+          - internal
+          - alpha
+          - beta
+          - production
+      status:
+        description: 'Release Status (completed, draft, inProgress, halted)'
+        required: true
+        default: 'completed'
+        type: choice
+        options:
+          - completed
+          - draft
+          - inProgress
+          - halted
 
 permissions:
   contents: write
@@ -74,3 +95,21 @@ jobs:
             app/build/outputs/native-debug-symbols/release/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to Google Play Console
+        if: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY != '' }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY }}
+          packageName: org.sprachcafe.member
+          releaseFiles: app/build/outputs/bundle/release/*.aab
+          track: ${{ inputs.track || 'internal' }}
+          status: ${{ inputs.status || 'completed' }}
+          mappingFile: app/build/outputs/mapping/release/mapping.txt
+          debugSymbols: app/build/outputs/native-debug-symbols/release/*.zip
+
+      - name: Notice on Google Play Console deployment
+        if: ${{ secrets.PLAY_SERVICE_ACCOUNT_KEY == '' }}
+        run: |
+          echo "::notice title=Google Play Deployment Skipped::Secret PLAY_SERVICE_ACCOUNT_KEY is not configured in repository settings. See PLAY_CONSOLE_GUIDE.md to activate automated releases."
+
