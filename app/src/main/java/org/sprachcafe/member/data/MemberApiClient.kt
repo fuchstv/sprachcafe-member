@@ -72,8 +72,7 @@ object MemberApiClient {
                 val last = nameParts.getOrNull(1) ?: ""
 
                 val tier = m.getString("tier")
-                val totalDefaults = mapOf("SILVER" to 4, "GOLD" to 8, "PLATINUM" to 10, "COMPANY" to 10)
-                val total = totalDefaults[tier] ?: 4
+                val total = MemberTierDefaults.getCoffeeQuota(tier)
 
                 Result.success(
                     MemberProfile(

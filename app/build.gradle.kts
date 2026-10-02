@@ -91,3 +91,7 @@ dependencies {
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
+
+dependencies {
+    testImplementation("junit:junit:4.13.2")
+}
