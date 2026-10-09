@@ -1,5 +1,7 @@
 package org.sprachcafe.member.ui
 
+import org.sprachcafe.member.R
+
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
@@ -83,9 +85,9 @@ fun MemberCardScreen(
                 val updated = res.getOrThrow()
                 prefs.saveProfile(updated)
                 onProfileUpdated(updated)
-                Toast.makeText(context, "Mitgliedsdaten aktualisiert", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.member_data_updated), Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context, "Konnte nicht aktualisieren: ${res.exceptionOrNull()?.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.member_data_update_failed, res.exceptionOrNull()?.message), Toast.LENGTH_SHORT).show()
             }
         }
     }
