@@ -23,9 +23,12 @@ object QrCodeGenerator {
         val height = bitMatrix.height
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
+        val darkColor = Color.parseColor("#1D1B1A")
+        val lightColor = Color.WHITE
+
         for (x in 0 until width) {
             for (y in 0 until height) {
-                bitmap.setPixel(x, y, if (bitMatrix.get(x, y)) Color.parseColor("#1D1B1A") else Color.WHITE)
+                bitmap.setPixel(x, y, if (bitMatrix.get(x, y)) darkColor else lightColor)
             }
         }
         return bitmap
