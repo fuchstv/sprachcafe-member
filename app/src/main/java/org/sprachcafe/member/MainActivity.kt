@@ -2,6 +2,7 @@ package org.sprachcafe.member
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -87,8 +88,11 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
-        } catch (_: Exception) {
-            // Ignored if not installed from Google Play yet
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to check for updates", e)
         }
+    }
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }
